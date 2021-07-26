@@ -1,0 +1,31 @@
+{
+  "name": "star-wars-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/belio39/star-wars-api.git"
+  },
+  "author": "Dennis belio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/belio39/star-wars-api/issues"
+  },
+  "homepage": "https://github.com/belio39/star-wars-api#readme",
+  "dependencies": {
+    "apollo-datasource-rest": "^3.0.1",
+    "apollo-server": "^3.0.1",
+    "apollo-server-express": "^3.0.1",
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "graphql": "^15.5.1",
+    "node-fetch": "^2.6.1"
+  }
+}
