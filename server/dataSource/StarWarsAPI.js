@@ -1,5 +1,4 @@
 const { RESTDataSource } = require("apollo-datasource-rest");
-
 class StarWarsAPI extends RESTDataSource {
   constructor() {
     super();

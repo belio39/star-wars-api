@@ -1,28 +1,32 @@
-const fetch = require("node-fetch");
+const axios = require("axios");
 
 const resolvers = {
   Query: {
     getAllPeople: async (_, { page }) => {
-      const url = `https://swapi.dev/api/people/?${page}`;
-      const res = await fetch(`${url}`);
-      return await res.json();
+      const result = await axios.get(
+        `https://swapi.dev/api/people/?page=${page}`
+      );
+      let res = {
+        people: [Object],
+        count: Number,
+      };
+      if (result.data && result.data.results) {
+        res.people = result.data.results;
+        res.count = result.data.count;
+      }
+      return res;
     },
 
-    getHomeWorld: async (_, { args }) => {
-      const res = await fetch(args.getHomeWorld);
-      return await res.json();
-    },
-
-    getPerson: async (_, { id }) => {
-      const url = "https://swapi.dev/api/people/";
-      const res = await fetch(`${url}${id}`);
-      return await res.json();
+    getHomeWorld: async (_, args) => {
+      const result = await axios.get(args.homeWorldUrl);
+      return result.data;
     },
 
     getPeopleByName: async (_, { name }) => {
-      const url = `https://swapi.dev/api/people/?search=${name}`;
-      const res = await fetch(`${url}`);
-      return await res.json();
+      const result = await axios.get(
+        `https://swapi.dev/api/people/?search=${name}`
+      );
+      return result.data && result.data.results ? result.data.results : [];
     },
   },
 };
